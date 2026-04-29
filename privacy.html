@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Always Booked</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;color:#1F2937;background:#fff;line-height:1.7;font-size:16px}
+a{color:#0D9488;text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E5E7EB;background:#fff}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:#0D9488;letter-spacing:-0.3px}
+.nav-back{font-size:14px;color:#6B7280;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:#0D9488;text-decoration:none}
+
+.hero{background:linear-gradient(160deg,#fff 50%,#f0fdf9 100%);padding:60px 40px 48px;border-bottom:1px solid #E5E7EB}
+.hero-inner{max-width:820px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#f0fdf9;border:1px solid #99f6e4;color:#0D9488;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:0.04em}
+.hero h1{font-family:'DM Serif Display',serif;font-size:42px;color:#111827;font-weight:400;margin-bottom:12px;line-height:1.15}
+.hero-meta{font-size:13px;color:#9CA3AF;margin-bottom:20px}
+.hero-intro{font-size:16px;color:#4B5563;line-height:1.75;max-width:700px}
+
+.container{max-width:820px;margin:0 auto;padding:48px 40px 80px}
+
+.toc{background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;padding:24px 28px;margin-bottom:48px}
+.toc h3{font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:14px}
+.toc ol{padding-left:18px}
+.toc li{margin-bottom:6px}
+.toc a{font-size:14px;color:#0D9488;font-weight:500}
+
+.section{margin-bottom:56px}
+.section-anchor{display:block;height:1px;margin-top:-20px;visibility:hidden}
+
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #f0fdf9}
+.section-num{width:36px;height:36px;background:#0D9488;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0}
+.section-header h2{font-family:'DM Serif Display',serif;font-size:26px;color:#111827;font-weight:400}
+
+.subsection{margin-bottom:28px}
+.subsection h3{font-size:16px;font-weight:600;color:#111827;margin-bottom:10px}
+.subsection h4{font-size:14px;font-weight:600;color:#374151;margin-bottom:8px;margin-top:16px}
+.subsection p{font-size:15px;color:#4B5563;margin-bottom:12px;line-height:1.75}
+.subsection p:last-child{margin-bottom:0}
+
+.audience-block{background:#F9FAFB;border-radius:10px;padding:18px 20px;margin-bottom:16px;border-left:3px solid #E5E7EB}
+.audience-block.patient{border-left-color:#0D9488}
+.audience-block.clinic{border-left-color:#F59E0B}
+.audience-block.both{border-left-color:#8B5CF6}
+.audience-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px}
+.audience-label.patient{color:#0D9488}
+.audience-label.clinic{color:#D97706}
+.audience-label.both{color:#7C3AED}
+.audience-block p{font-size:14px;color:#374151;margin-bottom:8px;line-height:1.65}
+.audience-block p:last-child{margin-bottom:0}
+
+.data-table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:14px}
+.data-table th{background:#f0fdf9;padding:10px 14px;text-align:left;font-weight:600;color:#0D9488;font-size:12px;letter-spacing:0.05em;text-transform:uppercase;border-bottom:2px solid #ccfbf1}
+.data-table td{padding:10px 14px;border-bottom:1px solid #F3F4F6;color:#374151;vertical-align:top}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:#F9FAFB}
+
+.processor-card{background:#F9FAFB;border:1px solid #E5E7EB;border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.processor-card h4{font-size:14px;font-weight:600;color:#111827;margin-bottom:6px}
+.processor-card p{font-size:13px;color:#6B7280;margin-bottom:4px;line-height:1.6}
+.processor-card a{font-size:13px}
+
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.right-item{background:#F9FAFB;border-radius:8px;padding:14px 16px;border:1px solid #E5E7EB}
+.right-item h4{font-size:13px;font-weight:600;color:#0D9488;margin-bottom:4px}
+.right-item p{font-size:13px;color:#6B7280;line-height:1.55}
+
+.pending-note{background:#fffbeb;border:1px solid #FDE68A;border-radius:8px;padding:12px 16px;margin-top:12px}
+.pending-note p{font-size:13px;color:#92400E;margin:0;line-height:1.55}
+
+.highlight-box{background:#f0fdf9;border:1px solid #99f6e4;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.highlight-box p{font-size:14px;color:#065f46;margin-bottom:8px;line-height:1.65}
+.highlight-box p:last-child{margin-bottom:0}
+
+.contact-card{background:#0D9488;border-radius:12px;padding:28px 32px;color:#fff;margin-top:32px}
+.contact-card h3{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;margin-bottom:8px}
+.contact-card p{font-size:14px;color:#99f6e4;margin-bottom:4px;line-height:1.6}
+.contact-card a{color:#fff;font-weight:500}
+
+.divider{height:1px;background:#F3F4F6;margin:48px 0}
+
+footer{background:#111827;padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:18px;color:#14B8A6}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13px;color:#6B7280}
+.footer-links a:hover{color:#14B8A6;text-decoration:none}
+
+@media(max-width:640px){
+  nav{padding:14px 20px}
+  .hero{padding:40px 20px 32px}
+  .container{padding:32px 20px 60px}
+  .rights-grid{grid-template-columns:1fr}
+  .hero h1{font-size:30px}
+  .section-header h2{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Always Booked</a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to homepage
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">PIPEDA &amp; BC PIPA Compliant</div>
+    <h1>Privacy Policy</h1>
+    <p class="hero-meta">Always Booked AI &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Last updated: April 29, 2026</p>
+    <p class="hero-intro">Always Booked is committed to protecting the privacy of every patient who calls through our AI receptionist service, and every dental clinic that uses our platform. This policy explains what information we collect, why we collect it, where it goes, and what your rights are — in plain language.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#accountability">Who is responsible for your privacy</a></li>
+      <li><a href="#what-we-collect">What information we collect</a></li>
+      <li><a href="#why-we-collect">Why we collect it</a></li>
+      <li><a href="#consent">How we obtain consent</a></li>
+      <li><a href="#patient-privacy">Patient privacy — call data</a></li>
+      <li><a href="#clinic-privacy">Clinic client privacy — business data</a></li>
+      <li><a href="#processors">Third-party processors</a></li>
+      <li><a href="#cross-border">Cross-border data transfers</a></li>
+      <li><a href="#security">How we protect your information</a></li>
+      <li><a href="#retention">How long we keep your information</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#contact">Contact us &amp; complaints</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <a class="section-anchor" id="accountability"></a>
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Who is responsible for your privacy</h2>
+    </div>
+    <div class="subsection">
+      <p>Always Booked is a registered business operating in British Columbia, Canada. We provide AI-powered voice receptionist services to dental clinics in the Vancouver area.</p>
+      <p><strong>Privacy Officer:</strong> Abdul Hussain, Founder<br>
+      <strong>Privacy contact:</strong> <a href="mailto:privacy@alwaysbookedai.ca">privacy@alwaysbookedai.ca</a><br>
+      <strong>Phone:</strong> 778-802-4624</p>
+      <p>Our privacy practices are governed by Canada's <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA) and British Columbia's <em>Personal Information Protection Act</em> (PIPA). If you have any questions about how we handle your information, please contact our Privacy Officer directly.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <a class="section-anchor" id="what-we-collect"></a>
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>What information we collect</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Patient call data</h3>
+      <p>When a patient calls a dental clinic that uses Always Booked, our AI receptionist may collect the following information during the call:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Data field</th><th>Why it is collected</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Full name</td><td>To identify the patient for booking purposes</td></tr>
+          <tr><td>Phone number</td><td>For appointment confirmation and follow-up</td></tr>
+          <tr><td>Email address</td><td>To send appointment confirmation (optional — not required to book)</td></tr>
+          <tr><td>Reason for call</td><td>To route the call correctly and inform clinic staff</td></tr>
+          <tr><td>Appointment date and time</td><td>To complete the booking</td></tr>
+          <tr><td>Symptoms (if described)</td><td>To flag urgent or clinical concerns for clinic awareness</td></tr>
+          <tr><td>Unanswered questions</td><td>To flag topics requiring clinic staff follow-up</td></tr>
+          <tr><td>Call recording</td><td>Primary mechanism for capturing all fields above; retained for quality assurance, dispute resolution, and clinic access on request</td></tr>
+        </tbody>
+      </table>
+      <p>Not all fields are collected on every call. Email collection is optional. Symptoms are only recorded when the caller describes a clinical concern.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Clinic client data</h3>
+      <p>When a dental clinic signs up to use Always Booked, we collect the following business information directly from the clinic owner or office manager:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Data field</th><th>Why it is collected</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Clinic name</td><td>Service agreement and account identification</td></tr>
+          <tr><td>Owner/manager name</td><td>Primary contact for account management</td></tr>
+          <tr><td>Email address</td><td>Account communications and weekly reports</td></tr>
+          <tr><td>Phone number</td><td>Account support and urgent contact</td></tr>
+          <tr><td>Business address</td><td>Service agreement and records</td></tr>
+          <tr><td>Billing details</td><td>Monthly payment processing via Stripe (card details handled exclusively by Stripe — see Section 6)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <a class="section-anchor" id="why-we-collect"></a>
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Why we collect it</h2>
+    </div>
+    <div class="subsection">
+      <div class="audience-block patient">
+        <div class="audience-label patient">👤 Patients</div>
+        <p>Patient call data is collected solely to book dental appointments on behalf of the clinic you called. We do not use patient data for marketing, advertising, AI model training, or any purpose beyond completing and recording your appointment booking.</p>
+      </div>
+      <div class="audience-block clinic">
+        <div class="audience-label clinic">🏥 Clinic clients</div>
+        <p>Clinic client data is collected to deliver our service, manage the account, send weekly performance reports, and process monthly subscription payments. We do not sell, rent, or share clinic client data with any third party for marketing purposes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <a class="section-anchor" id="consent"></a>
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>How we obtain consent</h2>
+    </div>
+    <div class="subsection">
+      <div class="audience-block patient">
+        <div class="audience-label patient">👤 Patients</div>
+        <p>At the start of every call, our AI receptionist provides a verbal disclosure before collecting any information. The disclosure states that: (1) the caller is speaking with an AI-powered receptionist, (2) the call may be recorded for booking purposes, and (3) call data will be processed by our AI provider whose servers are located in the United States.</p>
+        <p>By continuing the call after this disclosure, the caller provides implied consent to data collection for the purpose of booking their appointment. Email collection is explicitly presented as optional. Callers may end the call at any time.</p>
+        <p><strong>Minors under 13:</strong> Our AI receptionist is not designed to collect personal information from children under 13 years of age. If a caller is identified as being under 13 during the call, the interaction is ended and the caller is directed to have a parent or guardian contact the clinic directly. Appointment bookings for children must be made by a parent or guardian.</p>
+      </div>
+      <div class="audience-block clinic">
+        <div class="audience-label clinic">🏥 Clinic clients</div>
+        <p>Always Booked will notify clinic clients of any material changes to this privacy policy by email with 30 days notice before changes take effect. For non-material updates, continued use of the service after the notice period constitutes acceptance. For material changes that significantly affect how personal data is handled, Always Booked will seek fresh written consent from clinic clients before the changes take effect.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <a class="section-anchor" id="patient-privacy"></a>
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Patient privacy — call data</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Who processes patient call data</h3>
+      <p>Patient call data is processed by <strong>Retell AI Inc.</strong>, a US-based technology company that provides our AI voice platform. Always Booked has executed a Data Processing Agreement (DPA) with Retell AI confirming their data protection obligations. Under this agreement, Retell AI processes patient data solely on Always Booked's instructions.</p>
+      <p>AI language understanding during calls is powered by large language model technology provided by <strong>OpenAI</strong> and/or <strong>Anthropic</strong>, whose infrastructure processes call transcripts as part of real-time service delivery. Call routing is facilitated by <strong>Twilio Inc.</strong>, which may process call data both as Always Booked's telephony provider and as a technology partner of Retell AI. A current list of all Retell AI technology partners is available at <a href="https://trust.retellai.com/subprocessors" target="_blank">trust.retellai.com/subprocessors</a>.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Where patient data is stored</h3>
+      <p>Patient call recordings, transcripts, and captured data fields are stored on Retell AI servers located in the <strong>United States</strong>. Always Booked does not maintain any local copy of patient call data. No patient data is stored on Always Booked devices or cloud accounts.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Cross-border transfer disclosure</h3>
+      <div class="highlight-box">
+        <p>Your call information is processed on our behalf by Retell AI Inc., a US-based technology provider. As a result, your personal information may be stored and processed in the United States. Data stored in the United States may be subject to access by US courts, law enforcement, or government authorities under applicable US laws, including the Clarifying Lawful Overseas Use of Data Act (CLOUD Act).</p>
+        <p>Always Booked has executed a Data Processing Agreement with Retell AI Inc. to ensure your data is protected to a standard consistent with Canadian privacy law.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>How long patient data is kept</h3>
+      <p>Always Booked's target retention period for patient call data is <strong>90 days from the date of the call</strong>. After 90 days, call recordings and transcripts are deleted from Retell AI's systems unless a legal hold or active access request requires extended retention.</p>
+      <p>Booking confirmation details passed to the dental clinic (name, appointment date and time) are retained in the clinic's own systems. That copy is under the clinic's own privacy obligations and outside Always Booked's control.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Who can access patient data</h3>
+      <p><strong>Always Booked:</strong> Abdul Hussain (Founder) only, via the Retell AI dashboard using secure credentials. No other Always Booked personnel have access.</p>
+      <p><strong>The dental clinic:</strong> Clinic staff receive a morning summary of overnight bookings. Clinics may request access to a specific call recording where required for clinical or dispute purposes.</p>
+      <p><strong>Retell AI:</strong> Retell AI personnel may access data only as required to provide the service, under strict confidentiality obligations confirmed in the DPA.</p>
+      <p><strong>No one else:</strong> Patient data is never sold, shared with marketers, disclosed to other clinics, or used for advertising or AI model training purposes.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <a class="section-anchor" id="clinic-privacy"></a>
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Clinic client privacy — business data</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>How clinic client data is stored</h3>
+      <p>Clinic client contact information is stored in a password-protected CRM maintained by Always Booked. This file is stored on an encrypted device accessible only to Abdul Hussain. No clinic client data is shared with third parties except as described below.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Payment data</h3>
+      <p>All payment processing is handled by <strong>Stripe Inc.</strong>, a US-based payment processor certified to PCI-DSS Level 1 — the highest security standard in the payment industry. Always Booked never receives, stores, or transmits full credit card numbers, CVV codes, or banking details. Stripe returns to Always Booked only tokenized payment references: the last 4 digits of the card, card type, and expiry date.</p>
+      <p>Stripe's privacy practices are governed by their Privacy Policy at <a href="https://stripe.com/en-ca/privacy" target="_blank">stripe.com/en-ca/privacy</a>, which explicitly references PIPEDA and BC PIPA. Stripe may collect device, browser, and behavioral data for fraud detection purposes in accordance with their privacy policy.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>How long clinic client data is kept</h3>
+      <p>Clinic client contact and account data is retained for the duration of the service relationship and deleted upon written request or within 30 days of contract termination, whichever comes first.</p>
+      <p>Payment records are retained by Stripe for the period required by applicable financial, tax, and accounting law — typically 7 years under CRA requirements. This legally mandated retention is outside Always Booked's control.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <a class="section-anchor" id="processors"></a>
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Third-party processors</h2>
+    </div>
+    <div class="subsection">
+      <p>Always Booked uses the following third-party service providers to deliver its service. Each is bound by a Data Processing Agreement or equivalent contractual commitment:</p>
+
+      <div class="processor-card">
+        <h4>Retell AI Inc. — AI voice platform</h4>
+        <p>Processes patient call recordings, transcripts, and captured data fields on Always Booked's behalf. US-based. DPA executed April 28, 2026.</p>
+        <p>Privacy policy: <a href="https://retellai.com/privacy" target="_blank">retellai.com/privacy</a> &nbsp;·&nbsp; Subprocessors: <a href="https://trust.retellai.com/subprocessors" target="_blank">trust.retellai.com/subprocessors</a></p>
+      </div>
+
+      <div class="processor-card">
+        <h4>OpenAI — AI language model processing</h4>
+        <p>Provides large language model infrastructure used by Retell AI to understand and respond to caller conversations. Call transcripts may pass through OpenAI's systems during service delivery. US-based.</p>
+        <p>Privacy policy: <a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></p>
+      </div>
+
+      <div class="processor-card">
+        <h4>Anthropic — AI language model processing</h4>
+        <p>May provide large language model infrastructure used by Retell AI depending on service configuration. US-based.</p>
+        <p>Privacy policy: <a href="https://anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></p>
+      </div>
+
+      <div class="processor-card">
+        <h4>Twilio Inc. — telephony and call routing</h4>
+        <p>Facilitates call routing for the Always Booked phone number and is also a technology partner of Retell AI. Call data may pass through Twilio's infrastructure in both capacities. US-based.</p>
+        <p>Privacy policy: <a href="https://twilio.com/en-us/legal/privacy" target="_blank">twilio.com/en-us/legal/privacy</a></p>
+      </div>
+
+      <div class="processor-card">
+        <h4>Stripe Inc. — payment processing</h4>
+        <p>Handles all subscription payment processing for clinic clients. PCI-DSS Level 1 certified. Always Booked never receives full card details. US-based. PIPEDA explicitly acknowledged in Stripe's Canadian privacy provisions.</p>
+        <p>Privacy policy: <a href="https://stripe.com/en-ca/privacy" target="_blank">stripe.com/en-ca/privacy</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <a class="section-anchor" id="cross-border"></a>
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Cross-border data transfers</h2>
+    </div>
+    <div class="subsection">
+      <p>All third-party processors listed above are based in the United States. Personal information processed through Always Booked's service may be stored and processed in the United States, where data protection laws differ from those in Canada.</p>
+      <p>In particular, data stored in the United States may be subject to access by US courts, law enforcement, or government authorities under applicable US laws including the CLOUD Act. Always Booked cannot contractually prevent such access.</p>
+      <p>Safeguards in place to protect cross-border transfers include:</p>
+      <ul style="padding-left:20px;margin-bottom:12px;font-size:15px;color:#4B5563">
+        <li style="margin-bottom:8px">Data Processing Agreement with Retell AI Inc. incorporating Standard Contractual Clauses</li>
+        <li style="margin-bottom:8px">Stripe's Data Transfers Addendum and Data Privacy Framework certification</li>
+        <li style="margin-bottom:8px">Verbal disclosure to patients at the start of every call</li>
+        <li style="margin-bottom:8px">Written disclosure to clinic clients in the service agreement</li>
+      </ul>
+      <p>This cross-border transfer disclosure satisfies Always Booked's transparency obligations under PIPEDA Principle 1 (Accountability), PIPEDA Principle 8 (Openness), and the openness requirements of BC PIPA.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 9 -->
+  <div class="section">
+    <a class="section-anchor" id="security"></a>
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>How we protect your information</h2>
+    </div>
+    <div class="subsection">
+      <div class="audience-block patient">
+        <div class="audience-label patient">👤 Patient data</div>
+        <p>Retell AI protects patient call data using AES-256 encryption at rest and TLS 1.2 encryption in transit. Access is restricted by role-based controls. SOC 2 Type II audit reports are produced annually. Always Booked accesses the Retell dashboard using secure, unique credentials stored in a dedicated password manager.</p>
+      </div>
+      <div class="audience-block clinic">
+        <div class="audience-label clinic">🏥 Clinic client data</div>
+        <p>Clinic client data is stored in a password-protected CRM on an encrypted device. Access is restricted to Abdul Hussain only. No clinic client data is stored in shared or cloud environments without appropriate access controls and encryption.</p>
+      </div>
+      <div class="audience-block both">
+        <div class="audience-label both">💳 Payment data</div>
+        <p>Payment data is protected by Stripe's PCI-DSS Level 1 certified infrastructure, which includes AES-256 encryption, tokenization of card numbers, and separate encrypted storage of decryption keys. Always Booked never receives or stores full payment card details.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 10 -->
+  <div class="section">
+    <a class="section-anchor" id="retention"></a>
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>How long we keep your information</h2>
+    </div>
+    <div class="subsection">
+      <table class="data-table">
+        <thead>
+          <tr><th>Data type</th><th>Retention period</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Patient call recordings and transcripts</td><td>90 days from date of call (target)</td></tr>
+          <tr><td>Patient booking details (name, appointment)</td><td>Held by clinic under clinic's own retention policy</td></tr>
+          <tr><td>Clinic client contact and account data</td><td>Duration of service relationship + 30 days after termination</td></tr>
+          <tr><td>Payment records (via Stripe)</td><td>As required by law — typically 7 years under CRA requirements</td></tr>
+          <tr><td>Signed service agreements</td><td>7 years from date of signing</td></tr>
+        </tbody>
+      </table>
+      <p>When personal information is no longer needed, it is securely deleted. Always Booked does not retain personal information beyond the periods described above except where required by law.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 11 -->
+  <div class="section">
+    <a class="section-anchor" id="rights"></a>
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Your rights</h2>
+    </div>
+    <div class="subsection">
+      <p>Under PIPEDA and BC PIPA, you have the following rights regarding your personal information. To exercise any of these rights, contact us at <a href="mailto:privacy@alwaysbookedai.ca">privacy@alwaysbookedai.ca</a>. We will respond within 30 days.</p>
+      <div class="rights-grid">
+        <div class="right-item">
+          <h4>Right to access</h4>
+          <p>Ask us what personal information we hold about you, where it came from, how it has been used, and who it has been shared with.</p>
+        </div>
+        <div class="right-item">
+          <h4>Right to correction</h4>
+          <p>Ask us to correct inaccurate or incomplete personal information we hold about you.</p>
+        </div>
+        <div class="right-item">
+          <h4>Right to deletion</h4>
+          <p>Ask us to delete your personal information where it is no longer required for the purpose it was collected.</p>
+        </div>
+        <div class="right-item">
+          <h4>Right to withdraw consent</h4>
+          <p>Withdraw consent to the collection or use of your personal information at any time, subject to legal or contractual restrictions.</p>
+        </div>
+        <div class="right-item">
+          <h4>Right to access a recording</h4>
+          <p>Request a copy of your call recording or a written transcript of your call. Provided at no cost within 30 days.</p>
+        </div>
+        <div class="right-item">
+          <h4>Right to complain</h4>
+          <p>File a complaint with the Office of the Privacy Commissioner of Canada at <a href="https://priv.gc.ca" target="_blank">priv.gc.ca</a> or the BC OIPC at <a href="https://oipc.bc.ca" target="_blank">oipc.bc.ca</a>.</p>
+        </div>
+      </div>
+      <p>Always Booked will never charge a fee to access your personal information. If we cannot fulfill a request, we will explain why in writing and inform you of any recourse available to you.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 12 -->
+  <div class="section">
+    <a class="section-anchor" id="contact"></a>
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>Contact us &amp; complaints</h2>
+    </div>
+    <div class="subsection">
+      <p>If you have any questions about this privacy policy or how we handle your personal information, please contact our Privacy Officer:</p>
+      <div class="contact-card">
+        <h3>Privacy Officer — Always Booked</h3>
+        <p>Abdul Hussain, Founder</p>
+        <p>Email: <a href="mailto:privacy@alwaysbookedai.ca">privacy@alwaysbookedai.ca</a></p>
+        <p>Phone: <a href="tel:7788024624">778-802-4624</a></p>
+        <p style="margin-top:14px;font-size:13px;color:#99f6e4">We will acknowledge your inquiry promptly and respond in full within 30 days. If you are not satisfied with our response, you have the right to complain to the Office of the Privacy Commissioner of Canada (priv.gc.ca) or the BC Office of the Information and Privacy Commissioner (oipc.bc.ca).</p>
+      </div>
+
+      <div style="margin-top:28px">
+        <h3 style="font-size:16px;font-weight:600;color:#111827;margin-bottom:10px">Updates to this policy</h3>
+        <p style="font-size:15px;color:#4B5563">This policy will be updated when our data practices change or when we receive additional confirmation from our technology partners. Clinic clients will be notified of any material changes by email with 30 days notice. The version number and date at the top of this page indicate the most current version. Previous versions are available upon request.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Always Booked</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="mailto:privacy@alwaysbookedai.ca">privacy@alwaysbookedai.ca</a>
+  </div>
+</footer>
+
+</body>
+</html>
