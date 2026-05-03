@@ -115,7 +115,7 @@ footer{background:#111827;padding:28px 40px;display:flex;align-items:center;just
   <div class="hero-inner">
     <div class="hero-badge">PIPEDA &amp; BC PIPA Compliant</div>
     <h1>Privacy Policy</h1>
-    <p class="hero-meta">Always Booked AI &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Last updated: April 29, 2026</p>
+    <p class="hero-meta">Always Booked AI &nbsp;·&nbsp; Version 1.1 &nbsp;·&nbsp; Last updated: May 3, 2026</p>
     <p class="hero-intro">Always Booked is committed to protecting the privacy of every patient who calls through our AI receptionist service, and every dental clinic that uses our platform. This policy explains what information we collect, why we collect it, where it goes, and what your rights are — in plain language.</p>
   </div>
 </div>
@@ -181,10 +181,14 @@ footer{background:#111827;padding:28px 40px;display:flex;align-items:center;just
           <tr><td>Appointment date and time</td><td>To complete the booking</td></tr>
           <tr><td>Symptoms (if described)</td><td>To flag urgent or clinical concerns for clinic awareness</td></tr>
           <tr><td>Unanswered questions</td><td>To flag topics requiring clinic staff follow-up</td></tr>
+          <tr><td>Patient name</td><td>To identify who the appointment is for when different from the caller (e.g. a parent booking for a child)</td></tr>
+          <tr><td>CDCP coverage status</td><td>To flag Canadian Dental Care Plan coverage for clinic preparation — patients are asked directly and may decline to answer</td></tr>
+          <tr><td>Date of birth</td><td>For CDCP coverage verification only, with the caller's explicit consent — collected only for CDCP patients who agree to provide it</td></tr>
+          <tr><td>Booking relationship</td><td>To document whether the caller is the patient, a parent or guardian, or a third party — determines whether additional consent or clinic follow-up is required</td></tr>
           <tr><td>Call recording</td><td>Primary mechanism for capturing all fields above; retained for quality assurance, dispute resolution, and clinic access on request</td></tr>
         </tbody>
       </table>
-      <p>Not all fields are collected on every call. Email collection is optional. Symptoms are only recorded when the caller describes a clinical concern.</p>
+      <p>Not all fields are collected on every call. Email collection is optional. Symptoms are only recorded when the caller describes a clinical concern. CDCP coverage, date of birth, and booking relationship are collected only when directly relevant to the call.</p>
     </div>
 
     <div class="subsection">
@@ -218,7 +222,7 @@ footer{background:#111827;padding:28px 40px;display:flex;align-items:center;just
     <div class="subsection">
       <div class="audience-block patient">
         <div class="audience-label patient">👤 Patients</div>
-        <p>Patient call data is collected solely to book dental appointments on behalf of the clinic you called. We do not use patient data for marketing, advertising, AI model training, or any purpose beyond completing and recording your appointment booking.</p>
+        <p>Patient call data is collected solely to book dental appointments on behalf of the clinic you called. We do not use patient data for marketing, advertising, AI model training, or any purpose beyond completing and recording your appointment booking. Where a caller is booking on behalf of another person, we collect the relationship type and patient name to ensure the clinic has the correct contact for follow-up and that appropriate consent has been obtained.</p>
       </div>
       <div class="audience-block clinic">
         <div class="audience-label clinic">🏥 Clinic clients</div>
@@ -336,7 +340,7 @@ footer{background:#111827;padding:28px 40px;display:flex;align-items:center;just
 
       <div class="processor-card">
         <h4>Retell AI Inc. — AI voice platform</h4>
-        <p>Processes patient call recordings, transcripts, and captured data fields on Always Booked's behalf. US-based. DPA executed April 28, 2026. Retell AI has confirmed directly that call recordings and transcripts are never used for AI model training or product improvement.</p>
+        <p>Processes patient call recordings, transcripts, and captured data fields on Always Booked's behalf. US-based. DPA executed April 28, 2026.</p>
         <p>Privacy policy: <a href="https://retellai.com/privacy" target="_blank">retellai.com/privacy</a> &nbsp;·&nbsp; Subprocessors: <a href="https://trust.retellai.com/subprocessors" target="_blank">trust.retellai.com/subprocessors</a></p>
       </div>
 
@@ -401,7 +405,7 @@ footer{background:#111827;padding:28px 40px;display:flex;align-items:center;just
     <div class="subsection">
       <div class="audience-block patient">
         <div class="audience-label patient">👤 Patient data</div>
-        <p>Retell AI protects patient call data using AES-256 encryption at rest and TLS 1.2 encryption in transit. Access is restricted by role-based controls. SOC 2 Type II audit reports are produced annually. Always Booked accesses the Retell dashboard using secure, unique credentials stored in a dedicated password manager, protected by mandatory SMS-based two-factor authentication (2FA) required on all Retell accounts.</p>
+        <p>Retell AI protects patient call data using AES-256 encryption at rest and TLS 1.2 encryption in transit. Access is restricted by role-based controls. SOC 2 Type II audit reports are produced annually. Always Booked accesses the Retell dashboard using secure, unique credentials stored in a dedicated password manager.</p>
       </div>
       <div class="audience-block clinic">
         <div class="audience-label clinic">🏥 Clinic client data</div>
