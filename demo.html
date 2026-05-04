@@ -35,7 +35,7 @@ nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-betw
 .demo-block-header h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;font-weight:400;margin-bottom:6px}
 .demo-block-header p{font-size:14px;color:#9CA3AF;max-width:460px;margin:0 auto}
 
-.step1-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px 36px 0;position:relative;z-index:1;align-items:start}
+.step1-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:28px 36px 0;position:relative;z-index:1;max-width:520px;margin:0 auto}
 
 /* CALL WIDGET */
 .call-widget{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -55,13 +55,29 @@ nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-betw
 .cal-widget-header{margin-bottom:12px;flex-shrink:0}
 .cal-widget-header h3{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px}
 .cal-widget-header p{font-size:12px;color:#6B7280}
-.cal-embed-wrap{flex:1;overflow:hidden;border-radius:8px;min-height:430px;max-height:430px}
+.cal-embed-wrap{flex:1;overflow:hidden;border-radius:8px}
+.cal-scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cal-scroll-wrap::-webkit-scrollbar{height:3px}
+.cal-scroll-wrap::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}
+.cal-scroll-wrap::-webkit-scrollbar-thumb{background:#0D9488;border-radius:2px}
+.cal-grid-inner{display:grid;grid-template-columns:repeat(7,minmax(68px,1fr));gap:5px;min-width:500px}
+.cal-day-col{display:flex;flex-direction:column;gap:3px}
+.cal-day-header{text-align:center;font-size:10px;font-weight:600;color:#6B7280;letter-spacing:0.04em;text-transform:uppercase;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:3px;line-height:1.3}
+.cal-slot{border-radius:4px;padding:3px 5px;font-size:9px;font-weight:500;text-align:center;line-height:1.3}
+.cal-slot.available{background:rgba(13,148,136,0.18);color:#14B8A6;border:1px solid rgba(13,148,136,0.28)}
+.cal-slot.booked{background:rgba(255,255,255,0.03);color:#4B5563;border:1px solid rgba(255,255,255,0.05)}
+.cal-slot.closed{background:transparent;color:#2D3748;border:1px dashed rgba(255,255,255,0.04);font-size:8px}
+.cal-legend-dark{display:flex;gap:12px;margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,0.06)}
+.legend-item-dark{display:flex;align-items:center;gap:5px;font-size:10px;color:#6B7280}
+.legend-dot-dark{width:8px;height:8px;border-radius:2px}
+.legend-dot-dark.available{background:rgba(13,148,136,0.3);border:1px solid rgba(13,148,136,0.4)}
+.legend-dot-dark.booked{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)}
 
 /* STEP 2 PROMPTS */
 .step2-prompts{padding:24px 36px 36px;position:relative;z-index:1}
 .step2-header{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:16px;text-align:center}
-.step-tag{background:#0D9488;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
-.step2-header-text h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:2px}
+.step-tag{background:none;color:#fff;font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;padding:0;border-radius:0;letter-spacing:0;white-space:nowrap;flex-shrink:0;border:none}
+.step2-header-text h3{font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#fff;margin-bottom:2px}
 .step2-header-text p{font-size:13px;color:#9CA3AF}
 .prompts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .prompt-chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;transition:border-color 0.2s,background 0.2s}
@@ -223,37 +239,13 @@ footer{background:#111827;padding:24px 40px;display:flex;align-items:center;just
         </button>
       </div>
 
-      <div class="cal-widget">
-        <div class="cal-widget-header">
-          <h3>Live appointment availability</h3>
-          <p>Ask for any available slot during your call</p>
-        </div>
-        <div class="cal-embed-wrap">
-          <div id="cal-inline-embed" style="width:100%;height:100%;overflow:hidden"></div>
-        </div>
-        <script type="text/javascript">
-          (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
-          Cal("init","whitening-consultation",{origin:"https://app.cal.com"});
-          Cal.ns["whitening-consultation"]("inline",{
-            elementOrSelector:"#cal-inline-embed",
-            config:{layout:"week_view",theme:"dark"},
-            calLink:"always-booked-demo/whitening-consultation",
-          });
-          Cal.ns["whitening-consultation"]("ui",{
-            theme:"dark",
-            hideEventTypeDetails:true,
-            layout:"week_view"
-          });
-        </script>
-      </div>
     </div>
 
     <!-- STEP 2 PROMPTS — seamless dark -->
     <div class="step2-prompts">
       <div class="step2-header">
-        <div class="step-tag">Step 2</div>
+        <div class="step-tag">Step 2 — Scenarios to try in the demo</div>
         <div class="step2-header-text">
-          <h3>Try these scenarios during your call</h3>
           <p>Say these lines exactly — each tests a different AI capability</p>
         </div>
       </div>
