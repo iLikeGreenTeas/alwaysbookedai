@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Try the Always Booked Demo — Call Right Now</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;color:#1F2937;background:#fff;line-height:1.6;overflow-x:hidden}
+a{color:#0D9488;text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E5E7EB;background:rgba(255,255,255,0.95);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:#0D9488;letter-spacing:-0.3px}
+.nav-back{font-size:14px;color:#6B7280;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:#0D9488;text-decoration:none}
+
+.hero{padding:56px 40px 48px;background:linear-gradient(160deg,#fff 30%,#f0fdf9 100%);text-align:center;border-bottom:1px solid #E5E7EB}
+.hero-inner{max-width:700px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:#f0fdf9;border:2px solid #0D9488;color:#0D9488;font-size:16px;font-weight:600;padding:10px 24px;border-radius:30px;margin-bottom:24px;letter-spacing:0.02em}
+.pulse{width:10px;height:10px;background:#14B8A6;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.hero h1{font-family:'DM Serif Display',serif;font-size:46px;line-height:1.1;color:#111827;margin-bottom:16px;font-weight:400}
+.hero h1 em{font-style:italic;color:#0D9488}
+.hero-sub{font-size:17px;color:#4B5563;line-height:1.7;max-width:540px;margin:0 auto}
+
+.page-wrap{max-width:1060px;margin:0 auto;padding:56px 40px 80px}
+
+/* UNIFIED DARK DEMO BLOCK */
+.demo-block{background:#111827;border-radius:24px;overflow:hidden;margin-bottom:32px;position:relative}
+.demo-block::before{content:'';position:absolute;top:-120px;right:-120px;width:440px;height:440px;background:radial-gradient(circle,rgba(13,148,136,0.12) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+.demo-block-header{padding:36px 36px 0;text-align:center;position:relative;z-index:1}
+.demo-block-header h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;font-weight:400;margin-bottom:6px}
+.demo-block-header p{font-size:14px;color:#9CA3AF;max-width:460px;margin:0 auto}
+
+.step1-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px 36px 0;position:relative;z-index:1;align-items:start}
+
+/* CALL WIDGET */
+.call-widget{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.call-widget h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px}
+.call-widget p{font-size:13px;color:#9CA3AF;margin-bottom:18px;line-height:1.55}
+.phone-number{font-size:22px;font-weight:600;color:#14B8A6;margin-bottom:4px;letter-spacing:0.02em}
+.phone-label{font-size:11px;color:#6B7280;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px}
+.or-divider{display:flex;align-items:center;gap:10px;width:100%;margin-bottom:18px}
+.or-divider span{font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.08)}
+.webcall-btn{width:100%;background:#0D9488;color:#fff;border:none;padding:12px 20px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.webcall-btn:hover{background:#0b7a70;transform:translateY(-1px)}
+.webcall-btn svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* CALENDAR */
+.cal-widget{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px;overflow:hidden;display:flex;flex-direction:column}
+.cal-widget-header{margin-bottom:12px;flex-shrink:0}
+.cal-widget-header h3{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px}
+.cal-widget-header p{font-size:12px;color:#6B7280}
+.cal-embed-wrap{flex:1;overflow:hidden;border-radius:8px;min-height:430px;max-height:430px}
+
+/* STEP 2 PROMPTS */
+.step2-prompts{padding:24px 36px 36px;position:relative;z-index:1}
+.step2-header{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:16px;text-align:center}
+.step-tag{background:#0D9488;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.step2-header-text h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:2px}
+.step2-header-text p{font-size:13px;color:#9CA3AF}
+.prompts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prompt-chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;transition:border-color 0.2s,background 0.2s}
+.prompt-chip:hover{border-color:rgba(13,148,136,0.4);background:rgba(13,148,136,0.06)}
+.prompt-chip:last-child{grid-column:1/-1}
+.pnum{width:24px;height:24px;background:#0D9488;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;flex-shrink:0;margin-top:1px}
+.prompt-chip-text strong{display:block;font-size:11px;font-weight:600;color:#14B8A6;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.05em}
+.prompt-chip-text span{font-size:13px;color:#D1D5DB;font-style:italic;line-height:1.45}
+
+/* CLINIC HOURS STRIP */
+.hours-strip{background:#F9FAFB;border:2px solid #0D9488;border-radius:14px;padding:20px 24px;margin-bottom:48px}
+.hours-strip-line1{font-size:15px;font-weight:600;color:#111827;margin-bottom:4px}
+.hours-strip-line2{font-size:13px;color:#6B7280;margin-bottom:14px}
+.hours-strip-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.hours-day-col{text-align:center}
+.hours-day-name{font-size:10px;font-weight:600;color:#9CA3AF;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px}
+.hours-day-time{font-size:11px;color:#374151;font-weight:500;line-height:1.4}
+.hours-day-closed{font-size:11px;color:#D1D5DB}
+
+/* DELIVERABLES — light bg, full width single column */
+.deliverables-section{margin-bottom:48px;text-align:center}
+.section-label{font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0D9488;margin-bottom:12px}
+.deliverables-section h2{font-family:'DM Serif Display',serif;font-size:48px;color:#111827;font-weight:400;margin-bottom:10px;line-height:1.05}
+.deliverables-section .sub{font-size:20px;color:#6B7280;margin-bottom:32px;font-weight:400}
+.deliverables-list{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;text-align:left}
+.d-card{border-radius:14px;padding:22px 24px;position:relative;overflow:hidden;transition:transform 0.2s;display:flex;align-items:flex-start;gap:20px}
+.d-card:hover{transform:translateY(-1px)}
+.d-card.core{background:#f0fdf9;border:1.5px solid #99f6e4;box-shadow:0 1px 4px rgba(13,148,136,0.06)}
+.d-card.core h3{color:#065f46;font-size:19px}
+.d-card.core p{color:#134e4a;font-size:15px}
+.d-card.bonus{background:#fffbeb;border:2px solid #FDE68A}
+.d-card-left{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:48px}
+.d-card-num-badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;line-height:1}
+.d-card.core .d-card-num-badge{background:#ccfbf1;color:#0D9488;border:1.5px solid #5eead4;font-size:18px;font-weight:700}
+.d-card.bonus .d-card-num-badge{background:#fffbeb;color:#D97706;border:2px solid #FDE68A;font-size:13px}
+.d-card-icon-sm{font-size:20px}
+.d-card-right{flex:1}
+.d-card h3{font-size:17px;font-weight:600;margin-bottom:5px;color:#111827}
+.d-card.bonus h3{color:#92400E}
+.d-card p{font-size:14px;line-height:1.65;color:#6B7280}
+.d-card.bonus p{color:#78350F}
+
+/* BONUS ROW */
+.bonus-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.bonus-row .d-card{flex-direction:column;gap:12px}
+.bonus-row .d-card-left{flex-direction:row;align-items:center;min-width:auto}
+
+/* PRICING */
+.pricing-card{background:linear-gradient(135deg,#0D9488 0%,#0b7a70 100%);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:48px}
+.pricing-left h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;font-weight:400;margin-bottom:10px}
+.pricing-left ul{padding-left:0;list-style:none}
+.pricing-left ul li{font-size:14px;color:#99f6e4;padding:3px 0;display:flex;align-items:center;gap:8px}
+.pricing-left ul li::before{content:'✓';color:#14B8A6;font-weight:700}
+.pricing-right{text-align:center;flex-shrink:0}
+.price-amount{font-size:56px;font-weight:700;color:#fff;line-height:1}
+.price-mo{font-size:18px;color:#99f6e4;margin-bottom:4px}
+.price-note{font-size:13px;color:#99f6e4;background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px;display:inline-block;margin-top:8px}
+
+/* CTA */
+.cta-block{text-align:center;padding:40px 0 0}
+.cta-block h2{font-family:'DM Serif Display',serif;font-size:36px;color:#111827;font-weight:400;margin-bottom:10px}
+.cta-block p{font-size:16px;color:#6B7280;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-pill{display:inline-flex;align-items:center;gap:12px;background:#f0fdf9;border:2px solid #0D9488;padding:16px 32px;border-radius:14px;margin-bottom:12px}
+.cta-pill svg{width:22px;height:22px;fill:none;stroke:#0D9488;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.cta-pill span{font-size:20px;font-weight:600;color:#0D9488}
+.cta-note{font-size:13px;color:#9CA3AF}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal{background:#fff;border-radius:20px;padding:40px;width:100%;max-width:440px;position:relative}
+.modal h3{font-family:'DM Serif Display',serif;font-size:26px;color:#111827;margin-bottom:8px;font-weight:400}
+.modal-sub{font-size:14px;color:#6B7280;margin-bottom:24px;line-height:1.6}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:#374151;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px}
+.form-group input{width:100%;padding:11px 14px;border:1px solid #D1D5DB;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#111827;outline:none;transition:border 0.2s}
+.form-group input:focus{border-color:#0D9488}
+.casl-box{background:#f0fdf9;border:1px solid #99f6e4;border-radius:10px;padding:14px 16px;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px}
+.casl-box input{margin-top:3px;accent-color:#0D9488;width:15px;height:15px;flex-shrink:0;cursor:pointer}
+.casl-box label{font-size:13px;color:#065f46;line-height:1.55;cursor:pointer}
+.casl-box label strong{display:block;color:#0D9488;margin-bottom:2px}
+.call-now-btn{width:100%;background:#0D9488;color:#fff;border:none;padding:14px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background 0.2s}
+.call-now-btn:hover{background:#0b7a70}
+.close-btn{position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;color:#9CA3AF;cursor:pointer;line-height:1}
+.close-btn:hover{color:#374151}
+.calling-state{display:none;text-align:center;padding:20px 0}
+.calling-icon{width:64px;height:64px;background:#f0fdf9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:2px solid #14B8A6;animation:ringPulse 2s infinite}
+@keyframes ringPulse{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,0.3)}50%{box-shadow:0 0 0 14px rgba(13,148,136,0)}}
+.calling-icon svg{width:28px;height:28px;fill:#0D9488}
+.calling-state h3{font-family:'DM Serif Display',serif;font-size:24px;color:#111827;margin-bottom:8px;font-weight:400}
+.calling-state p{font-size:14px;color:#6B7280;line-height:1.6}
+
+footer{background:#111827;padding:24px 40px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:18px;color:#14B8A6}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13px;color:#6B7280}
+.footer-links a:hover{color:#14B8A6;text-decoration:none}
+
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .hero{padding:40px 20px 36px}
+  .hero h1{font-size:32px}
+  .page-wrap{padding:36px 20px 60px}
+  .demo-block-header{padding:28px 20px 0}
+  .step1-grid{grid-template-columns:1fr;gap:16px;padding:20px 20px 0}
+  .step2-prompts{padding:20px 20px 28px}
+  .prompts-grid{grid-template-columns:1fr}
+  .prompt-chip:last-child{grid-column:1}
+  .hours-strip-grid{grid-template-columns:repeat(4,1fr);gap:6px}
+  .bonus-row{grid-template-columns:1fr}
+  .pricing-card{flex-direction:column;text-align:center;padding:28px 24px}
+  .pricing-right{width:100%}
+  .calc-section{padding:28px 20px}
+  .calc-form{flex-direction:column}
+  .calc-input{min-width:100%}
+  .calc-btn{width:100%}
+  footer{flex-direction:column;gap:12px;text-align:center;padding:20px}
+  .modal{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Always Booked</a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 19"/></svg>
+    Back to homepage
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="pulse"></div>Live Interactive Demo — Always Booked Demo Clinic</div>
+    <h1>Try the Always Booked Demo —<br><em>Call Right Now</em></h1>
+    <p class="hero-sub">After-hours calls go to voicemail. Patients don't leave messages — they move on. Try our demo to see how every call gets answered. Call the number or request a call to your phone.</p>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- UNIFIED DARK DEMO BLOCK -->
+  <div class="demo-block">
+    <div class="demo-block-header">
+      <h2>Step 1 — Call the demo</h2>
+      <p>Check the availability calendar on the right — then ask for any open slot during your call.</p>
+    </div>
+
+    <div class="step1-grid">
+      <div class="call-widget">
+        <h3>Always Booked Demo Line</h3>
+        <p>Call directly or request a call to your phone — experience it exactly as your patients would.</p>
+        <div class="phone-number">+1 (978) 464-8309</div>
+        <div class="phone-label">Available 24/7 · Tap to call</div>
+        <div class="or-divider"><span>or</span></div>
+        <button class="webcall-btn" onclick="openModal()">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call me on my phone instead
+        </button>
+      </div>
+
+      <div class="cal-widget">
+        <div class="cal-widget-header">
+          <h3>Live appointment availability</h3>
+          <p>Ask for any available slot during your call</p>
+        </div>
+        <div class="cal-embed-wrap">
+          <div id="cal-inline-embed" style="width:100%;height:100%;overflow:hidden"></div>
+        </div>
+        <script type="text/javascript">
+          (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
+          Cal("init","whitening-consultation",{origin:"https://app.cal.com"});
+          Cal.ns["whitening-consultation"]("inline",{
+            elementOrSelector:"#cal-inline-embed",
+            config:{layout:"week_view",theme:"dark"},
+            calLink:"always-booked-demo/whitening-consultation",
+          });
+          Cal.ns["whitening-consultation"]("ui",{
+            theme:"dark",
+            hideEventTypeDetails:true,
+            layout:"week_view"
+          });
+        </script>
+      </div>
+    </div>
+
+    <!-- STEP 2 PROMPTS — seamless dark -->
+    <div class="step2-prompts">
+      <div class="step2-header">
+        <div class="step-tag">Step 2</div>
+        <div class="step2-header-text">
+          <h3>Try these scenarios during your call</h3>
+          <p>Say these lines exactly — each tests a different AI capability</p>
+        </div>
+      </div>
+      <div class="prompts-grid">
+        <div class="prompt-chip">
+          <div class="pnum">1</div>
+          <div class="prompt-chip-text">
+            <strong>Book an appointment</strong>
+            <span>"Hi, I'd like to book a cleaning for next Tuesday morning."</span>
+          </div>
+        </div>
+        <div class="prompt-chip">
+          <div class="pnum">2</div>
+          <div class="prompt-chip-text">
+            <strong>Change your mind mid-call</strong>
+            <span>"Actually, can we do Wednesday afternoon instead?"</span>
+          </div>
+        </div>
+        <div class="prompt-chip">
+          <div class="pnum">3</div>
+          <div class="prompt-chip-text">
+            <strong>Reschedule an appointment</strong>
+            <span>"I need to reschedule my appointment — can we move it to Friday?"</span>
+          </div>
+        </div>
+        <div class="prompt-chip">
+          <div class="pnum">4</div>
+          <div class="prompt-chip-text">
+            <strong>Test emergency triage</strong>
+            <span>"I have a bad toothache and it's getting worse — what should I do?"</span>
+          </div>
+        </div>
+        <div class="prompt-chip">
+          <div class="pnum">5</div>
+          <div class="prompt-chip-text">
+            <strong>Ask about insurance and hours</strong>
+            <span>"Do you accept Pacific Blue Cross? And are you open on Saturdays?"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLINIC HOURS STRIP -->
+  <div class="hours-strip">
+    <div class="hours-strip-line1">Always Booked Demo Clinic — Hours of Operation</div>
+    <div class="hours-strip-line2">Dr. Sarah Chen, DDS &nbsp;·&nbsp; 123 West Broadway, Vancouver BC &nbsp;·&nbsp; Accepting new patients</div>
+    <div class="hours-strip-grid">
+      <div class="hours-day-col"><div class="hours-day-name">Mon</div><div class="hours-day-time">8:00 AM–4:00 PM</div></div>
+      <div class="hours-day-col"><div class="hours-day-name">Tue</div><div class="hours-day-time">8:00 AM–4:00 PM</div></div>
+      <div class="hours-day-col"><div class="hours-day-name">Wed</div><div class="hours-day-time">11:00 AM–7:00 PM</div></div>
+      <div class="hours-day-col"><div class="hours-day-name">Thu</div><div class="hours-day-time">8:00 AM–4:00 PM</div></div>
+      <div class="hours-day-col"><div class="hours-day-name">Fri</div><div class="hours-day-time">8:00 AM–4:00 PM</div></div>
+      <div class="hours-day-col"><div class="hours-day-name">Sat</div><div class="hours-day-time">9:00 AM–5:00 PM</div></div>
+      <div class="hours-day-col"><div class="hours-day-name">Sun</div><div class="hours-day-closed">Closed</div></div>
+    </div>
+  </div>
+
+  <!-- DELIVERABLES -->
+  <div class="deliverables-section">
+    <div class="section-label">What you get</div>
+    <h2>Everything included with Always Booked</h2>
+    <p class="sub">Your first 2 weeks are completely free. No payment until you've seen real results.</p>
+
+    <div class="deliverables-list">
+      <div class="d-card core">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">01</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>Done-For-You Setup</h3>
+          <p>We build and configure your AI receptionist from scratch — including emergency triage protocol, clinic hours, services, and insurance handling. You provide 30 minutes of information. We handle everything else.</p>
+        </div>
+      </div>
+      <div class="d-card core">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">02</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>Go-Live Readiness Checklist</h3>
+          <p>Structured testing protocol before any patient interacts with the AI. Your team tests every scenario, approves the agent, and goes live with full confidence. No surprises on day one.</p>
+        </div>
+      </div>
+      <div class="d-card core">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">03</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>Every Call Answered.</h3>
+          <p>Answers every after-hours call. Books into pre-approved slots only. Full confirmation read-back before hanging up. Handles emergencies with the right protocol. Never sends a patient to voicemail.</p>
+        </div>
+      </div>
+      <div class="d-card core">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">04</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>Daily Morning Summary</h3>
+          <p>Easy to digest overnight summary every morning. Every call handled, every booking made, every question flagged for follow-up. No dashboard login required — 2-minute read and you're done.</p>
+        </div>
+      </div>
+      <div class="d-card core">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">05</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>Direct Founder Access</h3>
+          <p>Same-business-day response. Direct line to Abdul — the person who built Always Booked and configured your agent. No support tickets, no chatbots, no call centres. You deal with the founder, always.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BONUS ROW -->
+    <div class="bonus-row">
+      <div class="d-card bonus">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">Bonus #1</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>Pilot Review Call — Day 14</h3>
+          <p>At the end of your free 2-week pilot, we present a full progress report based on your results — calls handled, appointments booked, patient interactions. We walk through any call or outcome together before you decide to continue.</p>
+        </div>
+      </div>
+      <div class="d-card bonus">
+        <div class="d-card-left">
+          <div class="d-card-num-badge">Bonus #2</div>
+          
+        </div>
+        <div class="d-card-right">
+          <h3>30-Day Performance Report</h3>
+          <p>After your first full month — a complete accountant-ready ROI summary. Calls handled, bookings made, estimated revenue recovered.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing-card">
+    <div class="pricing-left">
+      <h2>Always Booked Pilot</h2>
+      <ul>
+        <li>First 2 weeks completely free</li>
+        <li>No payment until you've seen real results</li>
+        <li>Cancel anytime — no long-term commitment</li>
+        <li>Only 3 pilot spots available in Vancouver</li>
+      </ul>
+    </div>
+    <div class="pricing-right">
+      <div class="price-amount">$499</div>
+      <div class="price-mo">per month</div>
+      <div class="price-note">after free pilot period</div>
+    </div>
+  </div>
+
+  <!-- PIPEDA NOTE -->
+  <div style="text-align:center;margin-bottom:32px">
+    <p style="font-size:13px;color:#9CA3AF">Always Booked is PIPEDA and BC PIPA compliant. Patient call data is handled securely and never shared. <a href="/privacy" style="color:#0D9488;font-weight:500">Read our Privacy Policy →</a></p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Ready to bring this to your clinic?</h2>
+    <p>Call or text to start a conversation — no forms, no commitments, just a quick chat about whether Always Booked is right for you.</p>
+    <div class="cta-pill">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>778-802-4624</span>
+    </div>
+    <p class="cta-note">Call or text Abdul directly · Founder, Always Booked · abdul_hussain@alwaysbookedai.ca</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Always Booked</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="mailto:privacy@alwaysbookedai.ca">privacy@alwaysbookedai.ca</a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <div id="callFormState">
+      <h3>Call me on my phone</h3>
+      <p class="modal-sub">Enter your details and Always Booked will call you within seconds. Experience the demo exactly as your patients would — on a real phone call.</p>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="callName" placeholder="Dr. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="callPhone" placeholder="+1 604-555-0100">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="callEmail" placeholder="you@clinic.com">
+      </div>
+      <div class="casl-box">
+        <input type="checkbox" id="modalCasl">
+        <label for="modalCasl"><strong>🎁 Send me the free Missed Revenue Calculator</strong> + I'd like to receive follow-up information from Always Booked. Unsubscribe anytime.</label>
+      </div>
+      <button class="call-now-btn" onclick="initiateCall()">Call Me Now →</button>
+    </div>
+    <div class="calling-state" id="callingState">
+      <div class="calling-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" fill="#0D9488"/></svg>
+      </div>
+      <h3>Calling you now...</h3>
+      <p>Always Booked is calling <strong id="callingNumber"></strong>.<br>Pick up to experience the demo — the AI answers immediately.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.retellai.com/sdk/web-client.js"></script>
+<script>
+function openModal(){document.getElementById('modalOverlay').classList.add('active');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('active');document.body.style.overflow='';resetModal()}
+function handleOverlayClick(e){if(e.target===document.getElementById('modalOverlay'))closeModal()}
+function resetModal(){
+  document.getElementById('callFormState').style.display='block';
+  document.getElementById('callingState').style.display='none';
+  ['callName','callPhone','callEmail'].forEach(function(id){document.getElementById(id).value=''});
+}
+function initiateCall(){
+  var name=document.getElementById('callName').value.trim();
+  var phone=document.getElementById('callPhone').value.trim();
+  var email=document.getElementById('callEmail').value.trim();
+  if(!name||!phone||!email){alert('Please fill in all fields to receive your call.');return}
+  document.getElementById('callingNumber').textContent=phone;
+  document.getElementById('callFormState').style.display='none';
+  document.getElementById('callingState').style.display='block';
+  try{
+    var retellClient=new RetellWebClient();
+    retellClient.startCall({
+      publicKey:'public_key_1eabfa1edbf0bbfacb9f3',
+      agentId:'agent_f919dcc4b299a2ce5ffa66f564',
+      toNumber:phone,
+      fromNumber:'+19784648309',
+      metadata:{name:name,email:email}
+    });
+  } catch(err){
+    console.error('Retell error:',err);
+    alert('Something went wrong. Please call +1 (978) 464-8309 directly to try the demo.');
+    resetModal();
+    document.getElementById('callFormState').style.display='block';
+  }
+}
+</script>
+</body>
+</html>
